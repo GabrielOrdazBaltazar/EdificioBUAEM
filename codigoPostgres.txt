@@ -1,0 +1,86 @@
+-- Crear la base de datos
+CREATE DATABASE BDEdificioB;
+
+--ver lista de BD
+\l
+
+--entrar a la base de datos que creamos (mostgres crea las bd solo con minusculas)
+\c bdedificiob
+
+
+-- Crear el esquema
+CREATE SCHEMA IF NOT EXISTS edificioB;
+
+--Ver lista de schemas 
+\dn
+
+-- Usar el esquema creado (nunca es recomendado usar el "public")
+SET search_path = edificioB;
+
+-- Crear tabla institucion
+CREATE TABLE IF NOT EXISTS institucion (
+  id_institucion SERIAL PRIMARY KEY,
+  nombre VARCHAR(25) NOT NULL
+);
+
+-- Crear tabla facultad
+CREATE TABLE IF NOT EXISTS facultad (
+  id_facultad SERIAL PRIMARY KEY,
+  id_institucion INT NOT NULL,
+  nombre VARCHAR(32) NOT NULL,
+  CONSTRAINT created_by
+    FOREIGN KEY (id_institucion)
+    REFERENCES institucion (id_institucion)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+-- Crear tabla alumno
+CREATE TABLE IF NOT EXISTS alumno (
+  no_cuenta SERIAL PRIMARY KEY,
+  id_facultad INT NOT NULL,
+  nombre VARCHAR(30) NOT NULL,
+  apellido_materno VARCHAR(30) NOT NULL,
+  apellido_paterno VARCHAR(30) DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  clave VARCHAR(45) NOT NULL,
+  perdiodo_ingreso VARCHAR(3) NOT NULL,
+  periodo_egreso VARCHAR(3),
+  sexo VARCHAR(1) NOT NULL,
+  CONSTRAINT created_by
+    FOREIGN KEY (id_facultad)
+    REFERENCES facultad (id_facultad)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+-- Crear tabla empleado
+CREATE TABLE IF NOT EXISTS empleado (
+  no_cuenta SERIAL PRIMARY KEY,
+  facultad INT NOT NULL,
+  nombre VARCHAR(25) NOT NULL,
+  password VARCHAR(32) NOT NULL,
+  apellido_materno VARCHAR(32) DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  clave VARCHAR(32) NOT NULL,
+  puesto VARCHAR(32) NOT NULL,
+  CONSTRAINT created_by
+    FOREIGN KEY (facultad)
+    REFERENCES facultad (id_facultad)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+-- Crear tabla externo
+CREATE TABLE IF NOT EXISTS externo (
+  id_externo VARCHAR(16) PRIMARY KEY,
+  id_institucion INT NOT NULL,
+  sexo VARCHAR(1) NOT NULL,
+  nivel_educativo VARCHAR(20) DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  CONSTRAINT created_by
+    FOREIGN KEY (id_institucion)
+    REFERENCES institucion (id_institucion)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+-- Restaurar el valor predeterminado para la búsqueda del esquema
+RESET search_path;
