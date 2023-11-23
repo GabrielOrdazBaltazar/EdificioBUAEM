@@ -6,23 +6,24 @@ import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class InstitucionSQL extends ConexionSQL{
-    //variables
-    int id_institucion; 
+public class ExternoSQL extends ConexionSQL{
+    //Atributos
+    int id_externo;
     java.sql.Statement st;
-    ResultSet rs; 
-
-    public InstitucionSQL() {
-        
-    }
+    ResultSet rs;    
     
-    //Ingresar datos de una nueva institucion 
-    public void ingresarInstitucion(Institucion institucion){
+    //Metodos 
+    public ExternoSQL(){
+
+    }
+
+    //Ingresar usuario externo
+    public void ingresarExterno(Externo externo){
         try{
             //Ingresar datos a la base de datos
             Connection conexion = conectar();
             st = conexion.createStatement();
-            String sql = "insert into institucion(nombre) values('" +institucion.getNombre()+ "');";
+            String sql = "insert into externo(id_institucion,sexo,nivel_educativo) values('" +externo.getId_institucion()+ "','"+externo.getSexo()+"','"+externo.getNivel_educativo()+"');";
             st.execute(sql);
             st.close();
             conexion.close();
@@ -35,5 +36,4 @@ public class InstitucionSQL extends ConexionSQL{
             System.out.println(e);
         }
     }
-    
 }

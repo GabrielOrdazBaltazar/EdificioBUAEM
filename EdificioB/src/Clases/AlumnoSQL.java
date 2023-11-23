@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class AlumnoSQL extends ConexionSQL{
-    //variables
+    //Atributos
     java.sql.Statement st;
     ResultSet rs;  
 

@@ -1,7 +1,7 @@
-
 package Clases;
     
 public class Institucion {
+    
     //Atributos
     private String nombre;
     
