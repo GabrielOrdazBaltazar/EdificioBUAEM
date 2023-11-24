@@ -17,6 +17,20 @@ public class Alumno {
     
     }
 
+    public Alumno(int no_cuenta, int id_facultad, String nombre, String apellido_materno, String apellido_paterno, String clave, String periodo_ingreso, String periodo_egreso, String sexo) {
+        this.no_cuenta = no_cuenta;
+        this.id_facultad = id_facultad;
+        this.nombre = nombre;
+        this.apellido_materno = apellido_materno;
+        this.apellido_paterno = apellido_paterno;
+        this.clave = clave;
+        this.periodo_ingreso = periodo_ingreso;
+        this.periodo_egreso = periodo_egreso;
+        this.sexo = sexo;
+    }
+    
+    
+
     public int getNo_cuenta() {
         return no_cuenta;
     }

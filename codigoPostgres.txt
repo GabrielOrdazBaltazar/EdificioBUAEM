@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS alumno (
   apellido_materno VARCHAR(30) NOT NULL,
   apellido_paterno VARCHAR(30) DEFAULT CURRENT_TIMESTAMP NOT NULL,
   clave VARCHAR(45) NOT NULL,
-  perdiodo_ingreso VARCHAR(3) NOT NULL,
+  periodo_ingreso VARCHAR(3) NOT NULL,
   periodo_egreso VARCHAR(3),
   sexo VARCHAR(1) NOT NULL,
   CONSTRAINT created_by
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS empleado (
   clave VARCHAR(32) NOT NULL,
   puesto VARCHAR(32) NOT NULL,
   CONSTRAINT created_by
-    FOREIGN KEY (facultad)
+    FOREIGN KEY (id_facultad)
     REFERENCES facultad (id_facultad)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
