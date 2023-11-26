@@ -1,11 +1,11 @@
 public class main {
     public static void main(String[] args) {
-        /*
+        
         //Vista Alta institucion
         AltaInstitucionVista institucion  = new AltaInstitucionVista();
         institucion.setVisible(true);
         institucion.setLocationRelativeTo(null);
-        */
+        
         
         /*
         //Vista Alta facultad

@@ -1,3 +1,6 @@
+--En ubuntu 
+sudo -u postgres psql
+
 -- Crear la base de datos
 CREATE DATABASE BDEdificioB;
 
