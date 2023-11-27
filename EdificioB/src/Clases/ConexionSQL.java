@@ -20,6 +20,7 @@ public class ConexionSQL {
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error al conectar "+e," Error",JOptionPane.ERROR_MESSAGE);
+            System.out.println(e);
         }
         return conn;
     }        
