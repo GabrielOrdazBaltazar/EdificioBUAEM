@@ -15,7 +15,8 @@ public class FacultadSQL extends ConexionSQL {
     public FacultadSQL(){
 
     }
-
+    
+    //Ingresar Datos
     public void ingresarFacultad(Facultad facultad){
         try{
             //Guardando los datos en la BD
@@ -31,6 +32,32 @@ public class FacultadSQL extends ConexionSQL {
             JOptionPane.showMessageDialog(null, "El registro no se guardo " + e, "Mensaje", JOptionPane.ERROR_MESSAGE);
         }
     }    
+
+    //Buscar Facultad
+    public Facultad buscarFacultad(int id_facultad){
+        Facultad facultad = new Facultad();
+        try{
+            Connection conexion = conectar();
+            st = conexion.createStatement();
+            String sql = "select * from facultad where id_facultad = '"+id_facultad+"'"; 
+            rs = st.executeQuery(sql);
+            
+            if(rs.next()){
+                facultad.setNombre(rs.getString("nombre"));
+                facultad.setId_institucion(rs.getInt("id_institucion"));
+            }else{
+                facultad.setNombre(rs.getString(""));
+                facultad.setId_institucion(rs.getInt(""));
+                JOptionPane.showMessageDialog(null,"No se encontro registro ","Sin registro",JOptionPane.INFORMATION_MESSAGE);
+            }
+            st.close();
+            conexion.close();
+        }catch(Exception e){           
+                JOptionPane.showMessageDialog(null,"Error en e sistema de busqueda "+e,"Error",JOptionPane.ERROR_MESSAGE);
+                     
+        }
+        return facultad;
+    }
 
 
 }

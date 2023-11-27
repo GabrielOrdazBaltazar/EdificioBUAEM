@@ -1,5 +1,6 @@
 public class main {
     public static void main(String[] args) {
+        //Codigos para ingresar datos a la BD
         /*
         //Vista Alta institucion
         AltaInstitucionVista institucion  = new AltaInstitucionVista();
@@ -23,5 +24,21 @@ public class main {
         //centramos el frame 
         alumno.setLocationRelativeTo(null);
         */
+        
+        //Vista Alta Externo
+        /*
+        AltaExternoVista externo  = new AltaExternoVista();
+        externo.setVisible(true);
+        externo.setLocationRelativeTo(null);
+        */
+        
+        //Codigos para BUSCAR datos en la BD
+        
+        //Vista Busqueda Institucion
+        /*
+        BuscarInstitucionVista institucion  = new BuscarInstitucionVista();
+        institucion.setVisible(true);
+        institucion.setLocationRelativeTo(null);
+        */     
     }  
 }
