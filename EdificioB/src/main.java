@@ -1,11 +1,7 @@
 public class main {
     public static void main(String[] args) {
-<<<<<<< HEAD
         //Codigos para ingresar datos a la BD
         /*
-=======
-        
->>>>>>> 0a998cafb0f97354b1a306d6d1eb00718ee70ad8
         //Vista Alta institucion
         AltaInstitucionVista institucion  = new AltaInstitucionVista();
         institucion.setVisible(true);

@@ -37,5 +37,32 @@ public class ExternoSQL extends ConexionSQL{
         }
     }
 
+    //Buscar Externo
+    public Externo buscarExterno(int id_externo){
+        Externo externo = new Externo();
+        try{
+            Connection conexion = conectar();
+            st = conexion.createStatement();
+            String sql = "select * from externo where no_cuenta = '"+id_externo+"'"; 
+            rs = st.executeQuery(sql);
+            
+            if(rs.next()){
+                externo.setSexo(rs.getString("sexo"));
+                externo.setNivel_educativo(rs.getString("nivel_educativo"));
+                     
+            }else{
+                externo.setSexo(rs.getString(""));
+                externo.setNivel_educativo(rs.getString(""));
+
+                JOptionPane.showMessageDialog(null,"No se encontro registro ","Sin registro",JOptionPane.INFORMATION_MESSAGE);
+            }
+            st.close();
+            conexion.close();
+        }catch(Exception e){           
+                JOptionPane.showMessageDialog(null,"Error en e sistema de busqueda "+e,"Error",JOptionPane.ERROR_MESSAGE);
+                     
+        }
+        return externo;
+    }
      
 }
