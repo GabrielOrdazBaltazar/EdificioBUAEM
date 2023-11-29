@@ -35,5 +35,41 @@ public class EmpleadoSQL extends ConexionSQL{
             System.out.println(e);
         }
     }
+
+    //Buscar Empleado
+    public Empleado buscarEmpleado(int no_cuenta){
+        Empleado empleado = new Empleado();
+        try{
+            Connection conexion = conectar();
+            st = conexion.createStatement();
+            String sql = "select * from empleado where no_cuenta = '"+no_cuenta+"'"; 
+            rs = st.executeQuery(sql);
+            
+            if(rs.next()){
+                empleado.setId_facultad(rs.getInt("id_facultad"));
+                empleado.setNombre(rs.getString("nombre"));
+                empleado.setApellido_paterno(rs.getString("apellido_paterno"));
+                empleado.setApellido_materno(rs.getString("apellido_materno"));
+                empleado.setClave(rs.getString("clave"));
+                empleado.setPuesto(rs.getString("puesto"));
+                     
+            }else{
+                empleado.setId_facultad(rs.getInt(""));
+                empleado.setNombre(rs.getString(""));
+                empleado.setApellido_paterno(rs.getString(""));
+                empleado.setApellido_materno(rs.getString(""));
+                empleado.setClave(rs.getString(""));
+                empleado.setPuesto(rs.getString(""));
+
+                JOptionPane.showMessageDialog(null,"No se encontro registro ","Sin registro",JOptionPane.INFORMATION_MESSAGE);
+            }
+            st.close();
+            conexion.close();
+        }catch(Exception e){           
+                JOptionPane.showMessageDialog(null,"Error en e sistema de busqueda "+e,"Error",JOptionPane.ERROR_MESSAGE);
+                     
+        }
+        return empleado;
+    }     
  
 }
