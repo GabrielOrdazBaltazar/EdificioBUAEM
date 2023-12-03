@@ -11,5 +11,7 @@ class ConexionSQL:
             self.conn = psycopg2.connect(self.url)
             return self.conn
         except Exception as e:
-            messagebox.showerror("Error", f"Error al conectar: {e}")
+            messagebox.showerror("Error al conectar", f"Error al conectar: {e}")
+            print(e)
             return None
+
