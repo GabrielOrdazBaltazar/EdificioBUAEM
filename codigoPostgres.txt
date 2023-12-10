@@ -85,5 +85,15 @@ CREATE TABLE IF NOT EXISTS externo (
     ON UPDATE NO ACTION
 );
 
+-- Crear tabla edificioB
+CREATE TABLE IF NOT EXISTS edificioB (
+  id_edificiob SERIAL PRIMARY KEY,
+  id_usuario INT NOT NULL,
+  acervo_bibliografico INT NOT NULL,
+  area_abierta_vitral INT NOT NULL,
+  auto_acceso INT NOT NULL,
+  area_estudio INT NOT NULL
+);
+
 -- Restaurar el valor predeterminado para la búsqueda del esquema
 RESET search_path;

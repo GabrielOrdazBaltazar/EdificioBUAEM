@@ -44,6 +44,7 @@ public class AlumnoSQL extends ConexionSQL{
             rs = st.executeQuery(sql);
             
             if(rs.next()){
+                alumno.setNo_cuenta(rs.getInt("no_cuenta"));
                 alumno.setId_facultad(rs.getInt("id_facultad"));
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setApellido_paterno(rs.getString("apellido_paterno"));
@@ -54,6 +55,7 @@ public class AlumnoSQL extends ConexionSQL{
                 alumno.setSexo(rs.getString("sexo"));
 
             }else{
+                alumno.setNo_cuenta(rs.getInt(""));
                 alumno.setId_facultad(rs.getInt(""));
                 alumno.setNombre(rs.getString(""));
                 alumno.setApellido_paterno(rs.getString("")); 
@@ -88,5 +90,21 @@ public class AlumnoSQL extends ConexionSQL{
             JOptionPane.showMessageDialog(null, "El registro NO se actualizo correctamente "+ e,"Error",JOptionPane.ERROR_MESSAGE);
         
         } 
+    }  
+    
+    //Eliminar Facultad
+    public void eliminarAlumno(int no_cuenta){
+        try{
+            Connection conexion = conectar();
+            st = conexion.createStatement();
+            String sql = "delete from alumno where no_cuenta = '"+no_cuenta+"';";
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "El registro se borro correctamente","Eliminado",JOptionPane.INFORMATION_MESSAGE);
+            st.close();
+            conexion.close();              
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "El registro no se borro "+e,"Error",JOptionPane.ERROR_MESSAGE);
+        
+        }
     }     
 }

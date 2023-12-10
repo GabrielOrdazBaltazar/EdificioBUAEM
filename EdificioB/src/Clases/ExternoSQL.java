@@ -71,7 +71,7 @@ public class ExternoSQL extends ConexionSQL{
         try{         
             Connection conexion = conectar();
             st = conexion.createStatement();
-            String sql = "update externo set id_institucion = '"+externo.getId_institucion()+"', sexo = '"+externo.getSexo()+"' where id_externo = '"+id_externo+"';";
+            String sql = "update externo set id_institucion = '"+externo.getId_institucion()+"', sexo = '"+externo.getSexo()+"', nivel_educativo = '"+externo.getNivel_educativo()+"' where id_externo = '"+id_externo+"';";
             st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "El registro se actualizo correctamente","Actualizado",JOptionPane.INFORMATION_MESSAGE);
             st.close();
@@ -81,4 +81,20 @@ public class ExternoSQL extends ConexionSQL{
         
         } 
     }
+    
+    //Eliminar Externo
+    public void eliminarExterno(int id_externo){
+        try{
+            Connection conexion = conectar();
+            st = conexion.createStatement();
+            String sql = "delete from externo where id_externo = '"+id_externo+"';";
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "El registro se borro correctamente","Eliminado",JOptionPane.INFORMATION_MESSAGE);
+            st.close();
+            conexion.close();              
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "El registro no se borro "+e,"Error",JOptionPane.ERROR_MESSAGE);
+        
+        }
+    }    
 }

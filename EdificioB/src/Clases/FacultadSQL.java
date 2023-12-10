@@ -74,4 +74,20 @@ public class FacultadSQL extends ConexionSQL {
         
         } 
     } 
+    
+    //Eliminar Facultad
+    public void eliminarFacultad(int id_facultad){
+        try{
+            Connection conexion = conectar();
+            st = conexion.createStatement();
+            String sql = "delete from facultad where id_facultad = '"+id_facultad+"';";
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "El registro se borro correctamente","Eliminado",JOptionPane.INFORMATION_MESSAGE);
+            st.close();
+            conexion.close();              
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "El registro no se borro "+e,"Error",JOptionPane.ERROR_MESSAGE);
+        
+        }
+    }     
 }

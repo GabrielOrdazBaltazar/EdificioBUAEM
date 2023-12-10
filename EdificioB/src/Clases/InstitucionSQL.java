@@ -65,7 +65,7 @@ public class InstitucionSQL extends ConexionSQL{
         try{         
             Connection conexion = conectar();
             st = conexion.createStatement();
-            String sql = "update institucion set  nombre = '"+institucion.getNombre()+"' where id_departamento = '"+id_institucion+"';";
+            String sql = "update institucion set  nombre = '"+institucion.getNombre()+"' where id_institucion = '"+id_institucion+"';";
             st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "El registro se actualizo correctamente","Actualizado",JOptionPane.INFORMATION_MESSAGE);
             st.close();
@@ -74,5 +74,21 @@ public class InstitucionSQL extends ConexionSQL{
             JOptionPane.showMessageDialog(null, "El registro NO se actualizo correctamente "+ e,"Error",JOptionPane.ERROR_MESSAGE);
         
         } 
-    }      
+    }  
+
+    //Eliminar Institucion
+    public void eliminarInstitucion(int id_institucion){
+        try{
+            Connection conexion = conectar();
+            st = conexion.createStatement();
+            String sql = "delete from institucion where id_institucion = '"+id_institucion+"';";
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "El registro se borro correctamente","Eliminado",JOptionPane.INFORMATION_MESSAGE);
+            st.close();
+            conexion.close();              
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "El registro no se borro "+e,"Error",JOptionPane.ERROR_MESSAGE);
+        
+        }
+    }     
 }

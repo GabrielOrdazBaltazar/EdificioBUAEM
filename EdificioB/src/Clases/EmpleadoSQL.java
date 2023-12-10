@@ -46,6 +46,7 @@ public class EmpleadoSQL extends ConexionSQL{
             rs = st.executeQuery(sql);
             
             if(rs.next()){
+                empleado.setId_empleado(rs.getInt("no_cuenta"));
                 empleado.setId_facultad(rs.getInt("id_facultad"));
                 empleado.setNombre(rs.getString("nombre"));
                 empleado.setApellido_paterno(rs.getString("apellido_paterno"));
@@ -54,6 +55,7 @@ public class EmpleadoSQL extends ConexionSQL{
                 empleado.setPuesto(rs.getString("puesto"));
                      
             }else{
+                empleado.setId_empleado(rs.getInt(""));
                 empleado.setId_facultad(rs.getInt(""));
                 empleado.setNombre(rs.getString(""));
                 empleado.setApellido_paterno(rs.getString(""));
@@ -88,4 +90,19 @@ public class EmpleadoSQL extends ConexionSQL{
         } 
     }    
  
+    //Eliminar Empleado
+    public void eliminarEmpleado(int no_cuenta){
+        try{
+            Connection conexion = conectar();
+            st = conexion.createStatement();
+            String sql = "delete from empleado where no_cuenta = '"+no_cuenta+"';";
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "El registro se borro correctamente","Eliminado",JOptionPane.INFORMATION_MESSAGE);
+            st.close();
+            conexion.close();              
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "El registro no se borro "+e,"Error",JOptionPane.ERROR_MESSAGE);
+        
+        }
+    }    
 }
