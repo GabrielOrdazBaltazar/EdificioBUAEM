@@ -73,4 +73,20 @@ public class AlumnoSQL extends ConexionSQL{
         }
         return alumno;
     } 
+    
+    //Actulizar Alumno
+    public void actualizarAlumno(int no_cuenta,Alumno alumno){
+        try{         
+            Connection conexion = conectar();
+            st = conexion.createStatement();
+            String sql = "update alumno set id_facultad = '"+alumno.getId_facultad()+"', nombre = '"+alumno.getNombre()+"', apellido_paterno = '"+alumno.getApellido_paterno()+"', apellido_materno = '"+alumno.getApellido_materno()+"', clave = '"+alumno.getClave()+"', periodo_ingreso = '"+alumno.getPeriodo_ingreso()+"', periodo_egreso = '"+alumno.getPeriodo_egreso()+"', sexo = '"+alumno.getSexo()+"' where no_cuenta = '"+no_cuenta+"';";
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "El registro se actualizo correctamente","Actualizado",JOptionPane.INFORMATION_MESSAGE);
+            st.close();
+            conexion.close();            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "El registro NO se actualizo correctamente "+ e,"Error",JOptionPane.ERROR_MESSAGE);
+        
+        } 
+    }     
 }

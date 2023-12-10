@@ -25,6 +25,14 @@ public class main {
         alumno.setLocationRelativeTo(null);
         */
         
+        //Vista Alta Empleado
+        /*
+        AltaEmpleadoVista empleado  = new AltaEmpleadoVista();
+        empleado.setVisible(true);
+        empleado.setLocationRelativeTo(null);
+        */
+        
+        
         //Vista Alta Externo
         /*
         AltaExternoVista externo  = new AltaExternoVista();
@@ -40,5 +48,33 @@ public class main {
         institucion.setVisible(true);
         institucion.setLocationRelativeTo(null);
         */     
+        
+        //Vista Busqueda Facultad
+        /*
+        BuscarFacultadVista facultad  = new BuscarFacultadVista();
+        facultad.setVisible(true);
+        facultad.setLocationRelativeTo(null);
+        */
+        
+        //Vista Busqueda Alumno
+        /*
+        BuscarAlumnoVista alumno  = new BuscarAlumnoVista();
+        alumno.setVisible(true);
+        alumno.setLocationRelativeTo(null);
+        */   
+
+        //Vista Busqueda Empleado
+        /*
+        BuscarEmpleadoVista empleado  = new BuscarEmpleadoVista();
+        empleado.setVisible(true);
+        empleado.setLocationRelativeTo(null);
+        */ 
+        
+        //Vista Busqueda Externo
+        /*
+        BuscarExternoVista externo  = new BuscarExternoVista();
+        externo.setVisible(true);
+        externo.setLocationRelativeTo(null);
+        */   
     }  
 }

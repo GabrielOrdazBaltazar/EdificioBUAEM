@@ -43,10 +43,11 @@ public class ExternoSQL extends ConexionSQL{
         try{
             Connection conexion = conectar();
             st = conexion.createStatement();
-            String sql = "select * from externo where no_cuenta = '"+id_externo+"'"; 
+            String sql = "select * from externo where id_externo = '"+id_externo+"'"; 
             rs = st.executeQuery(sql);
             
             if(rs.next()){
+                externo.setId_institucion(rs.getInt("id_institucion"));
                 externo.setSexo(rs.getString("sexo"));
                 externo.setNivel_educativo(rs.getString("nivel_educativo"));
                      
@@ -65,4 +66,19 @@ public class ExternoSQL extends ConexionSQL{
         return externo;
     }
      
+    //Actulizar Externo
+    public void actualizarExterno(int id_externo,Externo externo){
+        try{         
+            Connection conexion = conectar();
+            st = conexion.createStatement();
+            String sql = "update externo set id_institucion = '"+externo.getId_institucion()+"', sexo = '"+externo.getSexo()+"' where id_externo = '"+id_externo+"';";
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "El registro se actualizo correctamente","Actualizado",JOptionPane.INFORMATION_MESSAGE);
+            st.close();
+            conexion.close();            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "El registro NO se actualizo correctamente "+ e,"Error",JOptionPane.ERROR_MESSAGE);
+        
+        } 
+    }
 }

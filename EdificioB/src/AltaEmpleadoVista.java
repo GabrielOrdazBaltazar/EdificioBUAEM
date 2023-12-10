@@ -1,4 +1,8 @@
 
+import Clases.Empleado;
+import Clases.EmpleadoSQL;
+
+
 public class AltaEmpleadoVista extends javax.swing.JFrame {
 
     public AltaEmpleadoVista() {
@@ -136,7 +140,30 @@ public class AltaEmpleadoVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        //
+        //Guardar Empleado
+        
+        //Variables
+        int no_cuenta = Integer.parseInt(txtNoCuenta.getText());
+        int id_facultad = Integer.parseInt(txtIdFacultad.getText());
+        String nombre = txtNombre.getText();
+        String apellidoPaterno = txtApellidoPaterno.getText();
+        String apellidoMaterno = txtApellidoMaterno.getText();
+        String clave = txtClave.getText();
+        String puesto = txtPuesto.getText();
+        
+        //Instanciando objetos 
+        Empleado empleado = new Empleado(no_cuenta,id_facultad,nombre,apellidoPaterno,apellidoMaterno,clave,puesto);
+        EmpleadoSQL empleadoSQL = new EmpleadoSQL();
+        empleadoSQL.ingresarEmpleado(empleado);
+        
+        //Limpiar cajas de texto 
+        txtNoCuenta.setText("");
+        txtIdFacultad.setText("");
+        txtNombre.setText("");
+        txtApellidoPaterno.setText("");
+        txtApellidoMaterno.setText("");
+        txtClave.setText("");
+        txtPuesto.setText("");
     }//GEN-LAST:event_btnGuardarActionPerformed
 
 

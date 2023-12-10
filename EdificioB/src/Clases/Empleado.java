@@ -15,6 +15,17 @@ public class Empleado {
         
     }
 
+    public Empleado(int id_empleado, int id_facultad, String nombre, String apellido_paterno, String apellido_materno, String clave, String puesto) {
+        this.id_empleado = id_empleado;
+        this.id_facultad = id_facultad;
+        this.nombre = nombre;
+        this.apellido_paterno = apellido_paterno;
+        this.apellido_materno = apellido_materno;
+        this.clave = clave;
+        this.puesto = puesto;
+    }
+    
+
     public int getId_empleado() {
         return id_empleado;
     }

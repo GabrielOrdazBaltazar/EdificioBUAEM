@@ -59,4 +59,20 @@ public class InstitucionSQL extends ConexionSQL{
         }
         return institucion;
     }  
+    
+    //Actulizar Institucion
+    public void actualizarInstitucion(int id_institucion,Institucion institucion){
+        try{         
+            Connection conexion = conectar();
+            st = conexion.createStatement();
+            String sql = "update institucion set  nombre = '"+institucion.getNombre()+"' where id_departamento = '"+id_institucion+"';";
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "El registro se actualizo correctamente","Actualizado",JOptionPane.INFORMATION_MESSAGE);
+            st.close();
+            conexion.close();            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "El registro NO se actualizo correctamente "+ e,"Error",JOptionPane.ERROR_MESSAGE);
+        
+        } 
+    }      
 }

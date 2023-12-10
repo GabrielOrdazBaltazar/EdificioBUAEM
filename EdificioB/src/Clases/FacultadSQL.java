@@ -59,5 +59,19 @@ public class FacultadSQL extends ConexionSQL {
         return facultad;
     }
 
-
+    //Actulizar Facultad
+    public void actualizarInstitucion(int id_facultad,Facultad facultad){
+        try{         
+            Connection conexion = conectar();
+            st = conexion.createStatement();
+            String sql = "update facultad set id_institucion = '"+facultad.getId_institucion()+"', nombre = '"+facultad.getNombre()+"' where id_facultad = '"+id_facultad+"';";
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "El registro se actualizo correctamente","Actualizado",JOptionPane.INFORMATION_MESSAGE);
+            st.close();
+            conexion.close();            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "El registro NO se actualizo correctamente "+ e,"Error",JOptionPane.ERROR_MESSAGE);
+        
+        } 
+    } 
 }
