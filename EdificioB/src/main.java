@@ -1,9 +1,11 @@
 public class main {
     public static void main(String[] args) {
         //FUNCION PRINCIPAL
+        
         MenuTipoUsuario menu  = new MenuTipoUsuario();
         menu.setVisible(true);
         menu.setLocationRelativeTo(null);  
+        
         
         //Menu eleccion de lugar
         /*

@@ -94,6 +94,10 @@ public class LoginEmpleado extends javax.swing.JFrame {
    
         if((empleado.getId_empleado() == no_cuenta)&&(empleado.getClave() == null ? clave == null : empleado.getClave().equals(clave))){
             System.out.println("Encontrado");
+            MenuEleccionSeccion menu2 = new MenuEleccionSeccion(empleado.getId_empleado());
+            menu2.setVisible(true);
+            menu2.setLocationRelativeTo(null); 
+            this.setVisible(false);            
         }else{
             JOptionPane.showMessageDialog(null,"EL REGISTRO NO SE ENCONTRO "+"\nLa contraseña o el numero de cuenta son incorrectos o no estan registrados");
         }

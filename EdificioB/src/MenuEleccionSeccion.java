@@ -101,6 +101,7 @@ public class MenuEleccionSeccion extends javax.swing.JFrame {
         
         edificioBSQL.ingresarEdificioB(edificioB);
         this.setVisible(false);
+        System.exit(0);
     }//GEN-LAST:event_btnAreaAbiertaActionPerformed
 
     private void btnAcervoBibliogaficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcervoBibliogaficoActionPerformed
@@ -110,6 +111,7 @@ public class MenuEleccionSeccion extends javax.swing.JFrame {
         
         edificioBSQL.ingresarEdificioB(edificioB);
         this.setVisible(false);
+        System.exit(0);
         
     }//GEN-LAST:event_btnAcervoBibliogaficoActionPerformed
 
@@ -119,6 +121,7 @@ public class MenuEleccionSeccion extends javax.swing.JFrame {
         
         edificioBSQL.ingresarEdificioB(edificioB);
         this.setVisible(false);
+        System.exit(0);
     }//GEN-LAST:event_btnAutoAccesoActionPerformed
 
     private void btnAreaEstudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAreaEstudioActionPerformed
@@ -128,6 +131,7 @@ public class MenuEleccionSeccion extends javax.swing.JFrame {
         edificioBSQL.ingresarEdificioB(edificioB);
         
         this.setVisible(false);
+        System.exit(0);
     }//GEN-LAST:event_btnAreaEstudioActionPerformed
 
     public static void main(String args[]) {
