@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS alumno (
   apellido_materno VARCHAR(30) NOT NULL,
   apellido_paterno VARCHAR(30) DEFAULT CURRENT_TIMESTAMP NOT NULL,
   clave VARCHAR(45) NOT NULL,
-  periodo_ingreso VARCHAR(3) NOT NULL,
-  periodo_egreso VARCHAR(3),
+  periodo_ingreso VARCHAR(5) NOT NULL,
+  periodo_egreso VARCHAR(5) ,
   sexo VARCHAR(1) NOT NULL,
   CONSTRAINT created_by
     FOREIGN KEY (id_facultad)
