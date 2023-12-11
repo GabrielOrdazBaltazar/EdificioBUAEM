@@ -33,7 +33,7 @@ public class LoginExterno extends javax.swing.JFrame {
 
         jLabel4.setText("NIVEL EDUCATIVO : ");
 
-        btnGuardar.setText("GUARDAR");
+        btnGuardar.setText("INGRESAR");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -51,15 +51,13 @@ public class LoginExterno extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel4))
+                            .addComponent(jLabel4)
+                            .addComponent(btnGuardar))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtIdInstitucion)
                             .addComponent(txtSexo, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
                             .addComponent(txtNivelEducativo)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(btnGuardar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(114, 114, 114)
                         .addComponent(jLabel1)))
@@ -101,10 +99,16 @@ public class LoginExterno extends javax.swing.JFrame {
         ExternoSQL externoSQL = new ExternoSQL();
         externoSQL.ingresarExterno(externo);
         
+        
         //Limpiamos las cajas de texto 
         txtIdInstitucion.setText("");
         txtSexo.setText("");
         txtNivelEducativo.setText("");
+        
+            MenuEleccionSeccion menu2 = new MenuEleccionSeccion();
+            menu2.setVisible(true);
+            menu2.setLocationRelativeTo(null); 
+            this.setVisible(false);         
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     public static void main(String args[]) {
